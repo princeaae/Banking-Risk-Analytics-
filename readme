@@ -1,0 +1,33 @@
+# 📊 UPI Transactions Dashboard – Tableau Project
+
+A fully interactive dashboard analyzing UPI (Unified Payments Interface) transactions across Indian cities, age groups, and payment methods. Built using **Tableau**, with data preprocessing done in **Excel and Python**, this project uncovers user behavior patterns and merchant trends in India’s digital payment ecosystem.
+
+---
+
+## 📌 Project Objective
+
+To analyze UPI transaction data and deliver a **business-ready, interactive dashboard** that helps:
+- Understand payment trends across age groups, cities, and platforms
+- Identify popular merchants and preferred transaction modes
+- Enable dynamic filtering for actionable insights
+
+---
+
+## 🛠️ Tools & Technologies Used
+- **Tableau Desktop Public Edition** – Data visualization & dashboarding
+- **Microsoft Excel** – Initial data cleanup and formatting
+- **Python (Pandas)** – Additional data preprocessing and transformation
+
+---
+
+## 📁 Dataset Description
+
+The dataset contains anonymized transaction-level records with the following fields:
+
+| Field | Description |
+|-------|-------------|
+| `Bank Name` | Receiving bank |
+| `Currency` | INR (Indian Rupees) |
+| `Device Type` | Mobile/Desktop |
+| `Payment Mode` | Phone Number / QR Code / UPI ID |
+| `Purpose` | Type of transaction (e.g., shopping, travel
