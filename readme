@@ -1,33 +1,160 @@
-# 📊 UPI Transactions Dashboard – Tableau Project
+# 💼 Risk Analytics in Banking
 
-A fully interactive dashboard analyzing UPI (Unified Payments Interface) transactions across Indian cities, age groups, and payment methods. Built using **Tableau**, with data preprocessing done in **Excel and Python**, this project uncovers user behavior patterns and merchant trends in India’s digital payment ecosystem.
-
----
-
-## 📌 Project Objective
-
-To analyze UPI transaction data and deliver a **business-ready, interactive dashboard** that helps:
-- Understand payment trends across age groups, cities, and platforms
-- Identify popular merchants and preferred transaction modes
-- Enable dynamic filtering for actionable insights
+## Tools Used - MySQL, Python, Power BI
 
 ---
 
-## 🛠️ Tools & Technologies Used
-- **Tableau Desktop Public Edition** – Data visualization & dashboarding
-- **Microsoft Excel** – Initial data cleanup and formatting
-- **Python (Pandas)** – Additional data preprocessing and transformation
+## 📌 Table of Contents
+1. [Project Objective](#project-objective)
+2. [Business Problem](#business-problem)
+3. [Dataset Description](#dataset-description)
+4. [ETL & Data Cleaning (Python)](#etl--data-cleaning-python)
+5. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+6. [Power BI Dashboard](#power-bi-dashboard)
+7. [Business Insights & Results](#business-insights--results)
+8. [Conclusion](#conclusion)
 
 ---
 
-## 📁 Dataset Description
+## 🎯 Project Objective
 
-The dataset contains anonymized transaction-level records with the following fields:
+To build an end-to-end banking analytics system that helps financial institutions:
+- Analyze customer deposit and loan behavior
+- Identify high-risk clients
+- Detect patterns in customer loyalty and engagement
+- Enable strategic decision-making through data visualization
 
-| Field | Description |
-|-------|-------------|
-| `Bank Name` | Receiving bank |
-| `Currency` | INR (Indian Rupees) |
-| `Device Type` | Mobile/Desktop |
-| `Payment Mode` | Phone Number / QR Code / UPI ID |
-| `Purpose` | Type of transaction (e.g., shopping, travel
+---
+
+## 💡 Business Problem
+
+Banks are constantly faced with risk:  
+> _"How do we decide which customers are safe to give a loan to?"_
+
+Traditional metrics (income, credit card usage) don’t always give the full picture.  
+This project helps banks:
+- Profile customers based on income, occupation, nationality, etc.
+- Visualize deposit vs loan behavior
+- Identify profitable yet risky segments
+- Track customer engagement over time
+
+---
+
+## 📊 Dataset Description
+
+The dataset was uploaded to MySQL and contains:
+- Customer Demographics (Gender, Nationality, Occupation)
+- Financial Metrics (Estimated Income, Savings, Loans, Business Lending, Credit Card Balances)
+- Account Types (Checking, Savings, Foreign Currency)
+- Fee Structure, Loyalty Classification, and Date Joined
+
+✅ **Rows**: ~3000+  
+✅ **Columns**: ~18+  
+✅ **Source**: Provided CSV → MySQL → Power BI
+
+---
+
+## 🔄 ETL & Data Cleaning (Python)
+
+### 🔗 Connected Python to MySQL using `mysql.connector`  
+Imported data into a Pandas DataFrame for preprocessing.
+
+### 🧹 Data Cleaning Steps:
+- Handled missing values (e.g. median imputation for `Credit Card Balance`)
+- Converted `GenderId` from (1/2) to ("Male"/"Female")
+- Removed duplicates
+- Standardized date columns
+- Converted income and fee values to numeric
+
+### 🛠 Feature Engineering:
+- **Income Banding** (`Low`, `Medium`, `High`) using `pd.cut()`
+- **Engagement Days** = Date difference between Join Date and Today
+- **Processing Fee Logic** based on Fee Structure
+
+---
+
+## 📈 Exploratory Data Analysis (EDA)
+
+Used `seaborn` and `matplotlib` to explore relationships between:
+- Occupation vs Loan
+- Nationality vs Deposit Behavior
+- Engagement vs Account Type
+- Income vs Savings
+
+### 🔍 Correlation Heatmap
+Analyzed relationships between numerical fields like:
+- Estimated Income
+- Bank Loans
+- Credit Card Balances
+- Superannuation Savings
+
+---
+
+## 📊 Power BI Dashboard
+
+After analysis, data was visualized using Power BI.
+
+### ✅ Pages Created:
+1. **Home Dashboard**  
+   - Total Clients, Total Loans, Total Deposits  
+   - Gender & Income Band Filters
+
+   ![Home Dashboard](https://github.com/yourusername/yourrepo/blob/main/assets/home.png)
+
+2. **Loan Analysis**  
+   - Loan metrics by Occupation, Income Band, Nationality  
+   - Credit & Business Lending Risks
+
+   ![Loan Analysis](https://github.com/yourusername/yourrepo/blob/main/assets/loan_data_analysis.png)
+
+3. **Deposit Analysis**  
+   - Breakdown of checking, savings, and foreign currency deposits  
+   - Insights by Gender and Income
+
+   ![Deposit Analysis](https://github.com/yourusername/yourrepo/blob/main/assets/deposit_analysis.png)
+
+4. **Summary Page**  
+   - Aggregated KPIs across all areas
+
+   ![Summary](https://github.com/yourusername/yourrepo/blob/main/assets/summary.png)
+
+> ⚠️ _Note: Replace links with actual GitHub image paths once uploaded._
+
+---
+
+## 📊 Business Insights & Results
+
+- **Medium Income Customers** hold the most deposits — lower risk, higher trust.
+- **Accountants and Admins** had higher loan amounts and lower deposits → possible red flags.
+- **Foreign nationals** borrowed more but had shorter engagement → monitor risk.
+- **High Processing Fee** clients contributed significantly to total fee income.
+- **Men spent more on credit**, but women saved more on average.
+
+---
+
+## ✅ Conclusion
+
+This project simulates how real banks could use data to reduce credit risk and increase customer value. By using:
+- **MySQL** for data structuring
+- **Python** for EDA & cleaning
+- **Power BI** for storytelling
+
+…we built a system that could help any financial institution make smarter, risk-aware decisions.
+
+---
+
+> ⚙️ Future Add-on: Incorporate a machine learning model to predict potential defaulters or churners using historical behavior.
+
+---
+
+📁 **Folders to Include in GitHub Repo**:
+- `/assets` → images
+- `/sql` → MySQL table creation and data upload script
+- `/notebooks` → Python code for EDA
+- `/powerbi` → PBIX file or screenshots
+
+---
+
+👤 **Made by:** Prince bhatt
+📫 LinkedIn: https://www.linkedin.com/in/prince-bhatt/
+
